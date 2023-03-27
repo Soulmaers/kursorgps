@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Прототип интерфейса</title>
+    <link rel="stylesheet" type="text/css" href="/css/style.css" />
+    <link rel="Shortcut Icon" href="../image/favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto:wght@300&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href=" https://unpkg.com/leaflet@1.6.0/dist/leaflet.css "
+        integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+        crossorigin="" />
+    <script src=" https://unpkg.com/leaflet@1.6.0/dist/leaflet.js "
+        integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+        crossorigin=""></script>
+</head>
+
+<body>
+
+    <!-- Блок Preloader -->
+    <div class="preloader">
+        <div class="sk-chase">
+            <div class="sk-chase-dot"></div>
+            <div class="sk-chase-dot"></div>
+            <div class="sk-chase-dot"></div>
+            <div class="sk-chase-dot"></div>
+            <div class="sk-chase-dot"></div>
+            <div class="sk-chase-dot"></div>
+        </div>
+    </div>
+
+    <header class="header">
+        <div class="logotip">
+            <img class="logo" src="https://static.tildacdn.com/tild3330-6536-4662-a364-386639656261/Asset_1log3_1.svg">
+        </div>
+        <div class="menu">
+            <a class="monitoring dash" href="#">Дашборд</a>
+            <a class="monitoring monitor" href="#">Мониторинг</a>
+
+        </div>
+        <div class="burger">
+            <div class="menu_burger"></div>
+            <div class="menu_burger"></div>
+            <div class="menu_burger"></div>
+            <!--<div class="menu_burger"></div>-->
+        </div>
+        <% if (role!=='Пользователь' ) { %><%-include('admin') %>
+                <% } %>
+
+                    <%-include('profile') %>
+    </header>
+    <div class="comeback">
+        <div class="iconStrela"></div>
+        <p class="titleName"></p>
+    </div>
+    <div class="wrapperFull">
+        <div class="wrapper_right_dash">
+            <div class="dash_card">
+                <h2 class="dash_title">
+                    Соотношение отклонений по давлению
+                </h2>
+
+            </div>
+            <div class="configChange">
+                <p class="title_change">Чекбокс</p>
+
+                <form class="check_box">
+                    <p class="p"><input class="input" type="checkbox" rel="" value="Все" id="Все" checked>Все</p>
+                </form>
+            </div>
+
+        </div>
+
+
+
+        <section class="section">
+            <div class="list_att">
+                <div class="list_item1">Машина</div>
+                <div class="list_item2">Тягач</div>
+                <div class="list_item3">Прицеп</div>
+            </div>
+            <div class="list_arr">
+                <div class="list_name"></div>
+                <div class="list_profil"></div>
+                <div class="list_trail"></div>
+            </div>
+        </section>
+
+        <section class="sections">
+            <div class="list_att">
+                <div class="list_item1">Машина</div>
+                <div class="list_item2">Тягач</div>
+                <div class="list_item3">Прицеп</div>
+            </div>
+            <div class="list_arr2">
+            </div>
+
+            <!--
+            <div class="list_arr">
+                <div class="list_name"></div>
+                <div class="list_profil"></div>
+                <div class="list_trail"></div>
+            </div>-->
+
+        </section>
+
+        <main class="main">
+            <div class="centerBlock">
+                <div class="headerMain">
+                    <div class="wrap_alarm">
+                        <!--   <span class="dav_max">ВНИМАНИЕ! Критически высокое давление!</span>
+                                <span class="dav_min">ВНИМАНИЕ! Критически низкое давление!</span>
+                           
+                               <span class="info">Уведомление отправлено ответственному на <span
+                                        class="mail">zavgar@cursor-gps.ru</span> </span>-->
+                        <div class="mainAlarm">Уведомления</div>
+                        <div class="plus"></div>
+                        <div class="minus"></div>
+                        <span class="ogon">&#128293</span>
+                        <div class="alarmStorage">
+                            <div class="tbody">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="headerTitle state">
+                        <div class="plug state_tyres">Состояние шин</div>
+                    </div>
+                    <div class="headerTitle">
+                        <div class="plug">Графики</div>
+                    </div>
+                    <div class="headerTitle">
+                        <div class="plug">Заглушка</div>
+                    </div>
+                </div>
+                <div class="wrapper_right">
+                    <div class="config">
+                        <div class="container_left">
+                            <div class="controll">
+                                <%-include('control') %>
+                            </div>
+                        </div>
+                        <div class="wrapper_containt">
+                            <div class="header_car">
+                                <div class="alarm"></div>
+                                <h2 class="title_two"></h2>
+                            </div>
+                            <div class="side">
+                                <div class="itemSide">L</div>
+                                <div class="itemSide">R</div>
+                            </div>
+                            <div class="alarm"></div>
+                            <h2 class="title_two"></h2>
+                            <div class="modalCenterOs">
+                                <div class="modalTitle">
+                                    <span class="modalNameOs">Ось : </span>
+                                    <span class="modalNumberOs"></span>
+                                </div>
+                                <ul class="modalList">
+                                    <li class="modalItem">
+                                        <p class="modalText" id="knd">Критически низкое давление, БАР</p><input
+                                            class="modalInput " step="0.1" type="number" placeholder="-">
+                                    </li>
+                                    <li class="modalItem">
+                                        <p class="modalText" id="kvd">Критически высокое давление, БАР</p><input
+                                            class="modalInput" step="0.1" type="number" placeholder="-">
+                                    </li>
+                                    <li class="modalItem">
+                                        <p class="modalText" id="dnn">Давление ниже нормы, БАР</p><input
+                                            class="modalInput " step="0.1" type="number" placeholder="-">
+                                    </li>
+                                    <li class="modalItem">
+                                        <p class="modalText" id="dvn">Давление выше нормы, БАР</p><input
+                                            class="modalInput " step="0.1" type="number" placeholder="-">
+                                    </li>
+                                    <li class="modalItem">
+                                        <p class="modalText" id="dnmin">Давление в норме min, БАР</p><input
+                                            class="modalInput " step="0.1" type="number" placeholder="-">
+                                    </li>
+                                    <li class="modalItem">
+                                        <p class="modalText" id="dnmax">Давление в норме max, БАР</p><input
+                                            class="modalInput " step="0.1" type="number" placeholder="-">
+                                    </li>
+                                </ul>
+                                <button class="btnModal">Сохранить</button>
+                                <span class="modalClear">&#10006</span>
+                            </div>
+                            <div class="contKran">
+                                <div class="kran">
+                                    <canvas id="krans" width="180" height="180"></canvas>
+                                </div>
+                                <div class="objCar">
+                                    <div class="argRed"></div>
+                                    <div class="argGreen"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <secion class="icon">
+                <div class="icon_item icon_akb">
+                    <p class="title_text akb_value"></p>
+                </div>
+                <div class="card_speeds">
+                    <div class="icon_item icon_akb_min"> </div>
+                    <p class="title_text akb_values"></p>
+                </div>
+                <div class="card_speed">
+                    <div class="icon_item icon_kluch"> </div>
+                    <p class="title_text to_value"></p>
+                </div>
+                <div class="card_speed">
+                    <div class="icon_item icon_speed"></div>
+                    <p class="title_text probeg_value"></p>
+                </div>
+                <div class="card_speed">
+                    <div class="icon_item icon_oil"> </div>
+                    <p class="title_text oil_value"></p>
+                </div>
+                <div class="icon_item icon_parking"></div>
+                <div class="icon_item icon_shina"></div>
+                <div class="card_speed">
+                    <div class="icon_item icon_starter"> </div>
+                    <p class="title_text starter_value"></p>
+                </div>
+            </secion>
+            <div class="techInfo">
+                <h2 class="techTitle">Основные показатели колеса</h2>
+                <% if (role!=='Пользователь' ) { %><%-include('modalTechNoTDRMX') %>
+                        <% } %>
+                            <% if (role=='Пользователь' ) { %><%-include('modalTechTDRMX') %>
+                                    <% } %>
+                                        <div class="radioVal">
+                                            <div class="wrarbtn"><button class="buttonTth">Сохранить</button></div>
+                                            <% if (role!=='Пользователь' ) { %><%-include('radioModule') %>
+                                                    <% } %>
+                                        </div>
+                                        <div class="protector">
+                                            <div class="title_prot">График замера протектора</div>
+                                            <div class="progressBar2">
+                                                <p class="mm12">12mm</p>
+                                                <p class="mm6">6mm</p>
+                                                <p class="mm0">0mm</p>
+                                                <div class="contBar2">
+                                                    <canvas id="drawLine2" height="60"></canvas>
+                                                </div>
+                                                <div class="contBar2">
+                                                    <canvas id="drawLine3" height="60"></canvas>
+                                                </div>
+                                                <div class="contBar2">
+                                                    <canvas id="drawLine4" height="60"></canvas>
+                                                </div>
+                                            </div>
+                                            <div class="headerMM">
+                                                <div class="titleMM N1">
+                                                    <div class="number"></div>
+                                                    <p class="text"></p>
+                                                </div>
+                                                <div class="titleMM N2">
+                                                    <div class="number"></div>
+                                                    <p class="text"></p>
+                                                </div>
+                                                <div class="titleMM N3">
+                                                    <div class="number"></div>
+                                                    <p class="text"></p>
+                                                </div>
+                                                <div class="titleMM N4">
+                                                    <div class="number"></div>
+                                                    <p class="text"></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="wrapper_button">
+                                            <button class="btnsens">Давление</button>
+                                            <button class="btnsens">Температура</button>
+                                        </div>
+                                        <div class="title_sens">Параметры:</div>
+                                        <ul class="obo">
+                                        </ul>
+                                        <!--  <div class="progressBar3">
+                                                <p class="mm12">12mm</p>
+                                                <p class="mm6">6mm</p>
+                                                <p class="mm0">0mm</p>
+                                                <div class="contBar3">
+                                                    <canvas id="drawLine22" width="116" height="60"></canvas>
+                                                </div>
+                                                <div class="contBar3">
+                                                    <canvas id="drawLine33" width="116" height="60"></canvas>
+                                                </div>
+                                                <div class="contBar3">
+                                                    <canvas id="drawLine44" width="116" height="60"></canvas>
+                                                </div>
+                                            </div>-->
+            </div>
+            <div class="wrapper_left">
+                <div class="detalisation">
+                    <div class="format">
+                        <h3 class="title_det">Мониторинг эксплуатации шин</h3>
+                        <ul class="item_det">
+                            <li class="list_det">Индикатор остаточного протектора</li>
+                            <li class="list_det">График протектора</li>
+                            <li class="list_det">Иконка (батарейка) на остаток протектора</li>
+                            <li class="list_det">Советчик шинному инженеру</li>
+                            <li class="list_det">Система управления жизненным циклом крупногабаритных шин</li>
+                        </ul>
+                    </div>
+                    <div class="format">
+                        <h3 class="title_det">Дополнительные параметры ТС</h3>
+                        <ul class="item_det">
+                            <li class="list_det">Датчик удара (слабый, сильный)</li>
+                            <li class="list_det">CAN шина</li>
+                            <li class="list_det">Обороты двигателя</li>
+                            <li class="list_det">Температура ОЖ</li>
+                            <li class="list_det">Нагрузка на ось(только с CAN шины)</li>
+                            <li class="list_det">Система подсчета расходов по платону</li>y
+                            <li class="list_det">Проверка качества вождения</li>
+                            <li class="list_det">Проверка штрафов из ГИБДД через гос.услуги</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="wrapper_up">
+                </div>
+                <div class="speedGraf">
+                    <div class="form_speed">
+                        <label>Интервал
+                            <select class="select_speed">
+                                <option disabled selected value="0">Указанный интервал</option>
+                                <option class="option_int" value="1">За сутки</option>
+                                <option class="option_int" value="2">За неделю</option>
+                                <option class="option_int" value="3">За месяц</option>
+                            </select>
+                        </label>
+                        <label>От
+                            <input class="input_date" type="date" value="" placeholder="выберите дату От">
+                        </label>
+                        <label>До
+                            <input class="input_date" type="date" value="" placeholder="выберите дату До">
+                        </label>
+                        <div class="btn_speed">
+                            <button class="btm_form">Очистить</button>
+                            <button class="btm_form control">Выполнить</button>
+                        </div>
+                    </div>
+                    <div class="grafik1">
+                    </div>
+                </div>
+            </div>
+        </main>
+        <div class="account">
+            <div class="accountControl">
+                <h3 class="titleAccount">Настройка прав доступа</h3>
+                <div class="low_modal">
+                    <div class="singUpForm">
+                        <h4 class="titleForm">Форма регистрации</h4>
+                        <div class="sigup">
+                            <%-include('signup') %>
+                        </div>
+                    </div>
+                    <div class="listAccount">
+                        <h4 class="titleForm">Список пользователей</h4>
+                        <div class="listAccountReal">
+                            <li class="usersTitle"><span class="loginTitle">Логин</span><span class="roleTitle">Права
+                                </span> </li>
+
+                        </div>
+                    </div>
+
+
+
+                    <span class="authClear">&#10006</span>
+                </div>
+                <p class="message"></p>
+            </div>
+
+        </div>
+    </div>
+    <script src="http://d3js.org/d3.v3.min.js"> </script>
+    <script src="https://d3js.org/d3.v4.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
+    <script src="https://hst-api.wialon.com/wsdk/script/wialon.js"></script>
+    <script type="module" src="js/main.js"></script>
+</body>
+
+</html>
